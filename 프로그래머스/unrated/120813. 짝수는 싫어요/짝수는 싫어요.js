@@ -1,0 +1,1 @@
+const solution=n=>new Array(Math.round(n/2)).fill(1).map((n,i)=>n+i*2)
