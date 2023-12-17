@@ -1,1 +1,1 @@
-const solution=(arr,n)=>arr.filter((e)=>e===n).length
+const solution=(arr,n)=>arr.filter(e=>e===n).length
