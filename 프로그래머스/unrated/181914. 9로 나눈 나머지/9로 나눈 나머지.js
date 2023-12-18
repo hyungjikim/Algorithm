@@ -1,0 +1,1 @@
+const solution=number=>[...number].reduce((a,c)=>Number(a)+Number(c))%9;
