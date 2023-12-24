@@ -1,0 +1,1 @@
+const solution = n => [...String(n)].reduce((a,c) => Number(a)+Number(c),0)
