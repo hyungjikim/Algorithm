@@ -1,0 +1,1 @@
+const solution = l => l.reduce((acc,cur) => l.length >= 11 ? acc + cur : acc * cur)
