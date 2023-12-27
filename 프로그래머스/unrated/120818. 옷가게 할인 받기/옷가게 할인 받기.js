@@ -1,0 +1,1 @@
+const solution = price => price >= 500000 ? Math.trunc(0.8*price) : price >= 300000 ? Math.trunc(0.9*price) : price >= 100000 ? Math.trunc(0.95 * price) : price
