@@ -1,0 +1,1 @@
+const solution = (arr) => arr.filter((e) => !e.includes('ad'))
