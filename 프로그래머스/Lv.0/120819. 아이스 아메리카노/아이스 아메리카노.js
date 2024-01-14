@@ -1,0 +1,1 @@
+const solution = money => [Math.trunc(money/5500), money - Math.trunc(money/5500)*5500]
