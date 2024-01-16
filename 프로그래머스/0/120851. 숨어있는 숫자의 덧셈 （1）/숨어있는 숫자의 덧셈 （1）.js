@@ -1,0 +1,1 @@
+const solution = s =>  [...s].filter((e) => Number(e)).reduce((a,c)=>Number(a)+Number(c))
