@@ -4,8 +4,8 @@ let input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
 let numbers = input.map(Number);
 
-let calc = numbers.map((n) => n % 42);
+let rest = numbers.map((n) => n%42);
 
-let set = new Set(calc);
+let set = new Set(rest);
 
 console.log(set.size)
