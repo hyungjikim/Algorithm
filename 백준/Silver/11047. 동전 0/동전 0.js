@@ -2,17 +2,21 @@ let fs = require('fs');
 
 let input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
-let [c, v] = input[0].split(' ').map(Number);
+let [n, k] = input[0].split(' ').map(Number);
 
-input.shift();
+input.shift(); 
 
-input.sort((a,b) => b-a);
+let arr = input.map(Number); 
 
-let count = 0;
+arr.sort((a, b) => b - a); 
 
-for(let i =0; i < input.length; i++) {
-    count += parseInt(v/input[i])
-    v %= Number(input[i]);
+let result = 0;
+
+for(let i = 0; i < arr.length; i++) {
+   result += parseInt(k / arr[i]);
+   k %= arr[i];
 }
 
-console.log(count);
+console.log(result);
+
+
