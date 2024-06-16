@@ -1,28 +1,16 @@
 let fs = require('fs');
 let input = fs.readFileSync('/dev/stdin').toString().trim().toUpperCase();
 
-let map = new Map();
+let alphabetFrequency = new Array(26).fill(0);
 
 for (let char of input) {
-    if (map.has(char)) {
-        map.set(char, map.get(char) + 1);
-    } else {
-        map.set(char, 1);
-    }
+    let index = char.charCodeAt(0) - 65;
+    alphabetFrequency[index]++;
 }
 
-let maxCount = 0;
-let maxChar = '';
-let isTie = false;
+let maxCount = Math.max(...alphabetFrequency);
+let maxCharIndex = alphabetFrequency.indexOf(maxCount);
 
-for (let [char, count] of map) {
-    if (count > maxCount) {
-        maxCount = count;
-        maxChar = char;
-        isTie = false;
-    } else if (count === maxCount) {
-        isTie = true;
-    }
-}
+let isTie = alphabetFrequency.filter(count => count === maxCount).length > 1;
 
-console.log(isTie ? '?' : maxChar);
+console.log(isTie ? '?' : String.fromCharCode(maxCharIndex + 65));
