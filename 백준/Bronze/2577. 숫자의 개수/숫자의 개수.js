@@ -1,16 +1,26 @@
 let fs = require('fs')
 let input = fs.readFileSync('/dev/stdin').toString().trim().split('\n')
 let [a,b,c] = input.map(Number)
-let multiply = a*b*c
+let multiply = a * b * c
 
-let numString = String(multiply)
+let multiplyArr = [...String(multiply)]
 
-let count = Array(10).fill(0);
-
-for (let i = 0; i < numString.length; i++) {
-    count[parseInt(numString[i])] += 1;
+let obj = {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9:0
 }
 
-for (let i = 0; i < count.length; i++) {
-    console.log(count[i]);
+for(let i = 0; i < multiplyArr.length; i++) {
+    let num = multiplyArr[i]
+    obj[num] += 1
 }
+
+console.log(Object.values(obj).join('\n'));
