@@ -1,22 +1,24 @@
-let fs = require('fs');
+const fs = require('fs');
+const stdin = fs.readFileSync('/dev/stdin').toString().trim().split('\n')
 
-let input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+const [n,k] = stdin[0].split(' ').map(Number)
+const coins = []
 
-let [n, k] = input[0].split(' ').map(Number);
-
-input.shift(); 
-
-let arr = input.map(Number); 
-
-arr.sort((a, b) => b - a); 
-
-let result = 0;
-
-for(let i = 0; i < arr.length; i++) {
-   result += parseInt(k / arr[i]);
-   k %= arr[i];
+for(let i = 1; i <= n; i++) {
+    const coin = Number(stdin[i])
+    coins.push(coin)
 }
 
-console.log(result);
+let rest = k
+let result = 0
 
+while(rest > 0) {
+    let point = coins.filter((coin) => coin <= rest).reverse()[0]
+    const left = rest % point
+    const divided = Math.floor(rest/point)
+    
+    rest = left
+    result += divided
+}
 
+console.log(result)
